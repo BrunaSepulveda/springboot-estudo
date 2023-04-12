@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import com.api.parkingcontrol.dtos.ParkingSpotDto;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -112,4 +114,14 @@ public class ParkingSpotModel implements Serializable{
   public void setblock(String block){
     this.block = block;
   }
+
+  // public void setToUpdate(ParkingSpotDto parkingSpotDto){
+  //   setapartment(parkingSpotDto.getapartment());
+  //   setblock(parkingSpotDto.getblock());
+  //   setcolorCar(parkingSpotDto.getcolorCar());
+  //   setbrandCar(parkingSpotDto.getbrandCar());
+  //   setlicencePlateCar(parkingSpotDto.getlicencePlateCar());
+  //   setparkingSpotNumber(parkingSpotDto.getparkingSpotNumber());
+  //   setresponsibleName(parkingSpotDto.getresponsibleName());
+  // }
 }

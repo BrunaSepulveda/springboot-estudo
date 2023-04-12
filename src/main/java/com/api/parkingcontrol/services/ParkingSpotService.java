@@ -1,4 +1,6 @@
 package com.api.parkingcontrol.services;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 // import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,11 +39,16 @@ public class ParkingSpotService {
     return parkingSpotRepository.findByApartmentAndBlock(apartment, block).size() > 0;
   }
 
-  public List<ParkingSpotModel> findAll() {
-    return parkingSpotRepository.findAll();
+  public  Page<ParkingSpotModel> findAll(Pageable pageable) {
+    return parkingSpotRepository.findAll(pageable);
   }
 
   public Optional<ParkingSpotModel> findById(UUID id) {
     return parkingSpotRepository.findById(id);
+  }
+
+  @Transactional
+  public void delete(ParkingSpotModel parkingSpotModel) {
+    parkingSpotRepository.delete(parkingSpotModel);
   }
 }
